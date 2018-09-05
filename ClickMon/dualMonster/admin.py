@@ -7,4 +7,4 @@ class SummonerAdmin(admin.ModelAdmin):
 
 @admin.register(Clickmon)
 class ClickmonAdmin(admin.ModelAdmin):
-    list_display = ['hp_max', 'exp', 'img_front']
+    list_display = ['summoner', 'hp_max', 'exp', 'img_front']
