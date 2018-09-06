@@ -44,7 +44,10 @@ class Clickmon(models.Model):
         enemy_hp = monster.hp
         monster.hp = monster.hp - self.damage
         dealed_damage = enemy_hp - monster.hp
+        monster.save()
+
         return f'{monster.name} a subit {dealed_damage}'
+
     @property
     def is_alive(self):
         if self.hp <= 0:
