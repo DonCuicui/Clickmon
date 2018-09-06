@@ -4,23 +4,21 @@ import datetime
 from .models import Summoner, Clickmon, Attack, AttackPack
 
 
-def combat(request):
-    now = datetime.datetime.now()
+def combat(request, clickmon_id):
+    clickmon = Clickmon.objects.get(id=clickmon_id)
     return render_to_response('combat.html', {
-        'time': now,
-        'Clickmon': Clickmon,
-        'Attack': Attack,
-        'AttackPack':AttackPack,
-        'Summoner': Summoner,
-
+        'clickmon': clickmon,
+        # 'Attack': Attack,
+        # 'AttackPack':AttackPack,
+        # 'Summoner': Summoner,
 
     })
 
 
 def menu(request):
-    now = datetime.datetime.now()
+    summoner, created = Summoner.objects.get_or_create(name='alban', mdp='gfkjlknl')
     return render_to_response('menu.html', {
-        'time': now,
+        'summoner': summoner,
     })
 
 

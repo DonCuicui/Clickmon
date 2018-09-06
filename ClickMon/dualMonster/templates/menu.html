@@ -10,7 +10,7 @@
 <body id="menu">
 	<section id="character">
 		<h1 id="characterName">
-			"Exemple michel"
+			{{ summoner.name }}
 		</h1>
 		<div class="bar"></div>
 		<img id="imgCharacter" src="https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/40594104_1967246823333592_7849944596283916288_n.jpg?_nc_cat=0&oh=80c04eae3714b0ffba3bfc7cacbb95a4&oe=5BECDA83">
@@ -55,28 +55,15 @@
 		</TABLE>
 	</section>
 	<section id="clickmons">
-		<TABLE id"object" BORDER="1">
+		<TABLE id="object" BORDER="1">
 			<TR>
-				<TD>
-					<h3>"name_object"</h3>
-					<img class="clickmonsImg" src="./1.png">
-					<a href="">Combattre avec "Clickmon.name"</a>
-				</TD>
-				<TD>
-					<h3>"name_object"</h3>
-					<img class="clickmonsImg" src="./1.png">
-					<a href="">Combattre avec "Clickmon.name"</a>
-				</TD>
-				<TD>
-					<h3>"name_object"</h3>
-					<img class="clickmonsImg" src="./1.png">
-					<a href="">Combattre avec "Clickmon.name"</a>
-				</TD>
-				<TD>
-					<h3>"name_object"</h3>
-					<img class="clickmonsImg" src="./1.png">
-					<a href="">Combattre avec "Clickmon.name"</a>
-				</TD>
+				{% for clickmon in summoner.clickmons.all %}
+                    <TD>
+                        <h3>{{ clickmon.name }}</h3>
+                        <img class="clickmonsImg" src="{{ clickmon.img_front.url }}">
+                        <a href="{% url 'combat' clickmon.id %}">Combattre avec {{ clickmon.name }}</a>
+                    </TD>
+                {% endfor %}
 			</TR>
 		</TABLE>
 	</section>
