@@ -88,7 +88,7 @@ class AttackPack(models.Model):
     def level_attack_one(self):
         return floor((self.exp_one / self.SECOND_LEVEL_EXP) ** .5 + 1)
 
-    @level.setter
+    @level_attack_one.setter
     def level_attack_one(self, new_level):
         self.exp_one = max(self.FIRST_LEVEL_EXP, ((new_level - 1) * self.SECOND_LEVEL_EXP) ** 2)
 
@@ -96,7 +96,7 @@ class AttackPack(models.Model):
     def level_attack_two(self):
         return floor((self.exp_two / self.SECOND_LEVEL_EXP) ** .5 + 1)
 
-    @level.setter
+    @level_attack_two.setter
     def level_attack_two(self, new_level):
         self.exp_two = max(self.FIRST_LEVEL_EXP, ((new_level - 1) * self.SECOND_LEVEL_EXP) ** 2)
 
@@ -104,7 +104,7 @@ class AttackPack(models.Model):
     def level_attack_three(self):
         return floor((self.exp_three / self.SECOND_LEVEL_EXP) ** .5 + 1)
 
-    @level.setter
+    @level_attack_three.setter
     def level_attack_three(self, new_level):
         self.exp_three = max(self.FIRST_LEVEL_EXP, ((new_level - 1) * self.SECOND_LEVEL_EXP) ** 2)
 
@@ -112,7 +112,7 @@ class AttackPack(models.Model):
     def level_attack_four(self):
         return floor((self.exp_four / self.SECOND_LEVEL_EXP) ** .5 + 1)
 
-    @level.setter
+    @level_attack_four.setter
     def level_attack_four(self, new_level):
         self.exp_four = max(self.FIRST_LEVEL_EXP, ((new_level - 1) * self.SECOND_LEVEL_EXP) ** 2)
     def __str__(self):
