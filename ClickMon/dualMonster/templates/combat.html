@@ -1,9 +1,24 @@
-<h1>Bienvenue dans la partie « {{ partie }} »</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'combat.css' %}">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>Bienvenue dans le combat il est : {{ time }}</h1>
   <div class="app">
     <div class="player-info">
       <p>Information hero</p>
     </div>
     <div class="ring">
+      <div>
         <div class="ranges">
           <div class="bar bar--hp">
             <div class="gauge" data-pourcent="100"></div>
@@ -15,10 +30,11 @@
             <div class="gauge" data-pourcent="100"></div>
           </div>
         </div>
-        <div><img src="https://via.placeholder.com/300x500" alt="hero"></div>
+        <div><img src="https://via.placeholder.com/400x600" alt="hero"></div>
+
       </div>
       <div class="player">
-        <div><img src="https://via.placeholder.com/300x500" alt="ennemy"></div>
+        <div><img src="https://via.placeholder.com/200x300" alt="ennemy"></div>
         <div class="ranges">
           <div class="bar bar--hp">
             <div class="gauge" data-pourcent="100"></div>
@@ -52,3 +68,4 @@
   </div>
 
 
+</body>
