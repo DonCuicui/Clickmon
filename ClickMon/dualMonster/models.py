@@ -1,4 +1,6 @@
 from django.db import models
+from math import floor
+
 
 class Attack(models.Model):
     name = models.CharField(max_length=20)
@@ -37,8 +39,31 @@ class Clickmon(models.Model):
     stamina = models.IntegerField(default=0)
     stamina_max = models.IntegerField(default=0)
     damage = models.IntegerField(default=0)
+
+    @property
+    def is_alive(self):
+        if self.hp <= 0:
+            return False
+        else:
+            return True
+
+    def maudire(self):
+        self.level -= 1
+
+    FIRST_LEVEL_EXP = 0
+    SECOND_LEVEL_EXP = 100
+
+    @property
+    def level(self):
+        return floor((self.exp / self.SECOND_LEVEL_EXP) ** .5 + 1)
+
+    @level.setter
+    def level(self, new_level):
+        self.exp = max(self.FIRST_LEVEL_EXP, ((new_level - 1) * self.SECOND_LEVEL_EXP) ** 2)
+
     def __str__(self):
-        return f'{self.name} de {self.summoner}'
+        return f'{self.name} niv {self.level} de {self.summoner}'
+
 
 class AttackPack(models.Model):
     Clickmon = models.ForeignKey(Clickmon, related_name='clickmon_attack', on_delete=models.CASCADE)
