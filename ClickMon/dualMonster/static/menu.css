@@ -23,11 +23,14 @@
 	max-width: 50vw;
 	height: 100vh;
 	max-width: 100vh;
-	display: flex;
-	flex-direction: column;
-	text-align: center;
 	position: fixed;
+	overflow: scroll;
+	text-align: center;
 	left: 50vw;
+}
+#clickmonObject{
+display:flex;
+flex-wrap:wrap;
 }
 .clickmonsImg{
 	height: 100%;

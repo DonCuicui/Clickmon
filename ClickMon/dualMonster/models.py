@@ -27,18 +27,18 @@ class Summoner(models.Model):
         return f'{self.name}'
 
 class Clickmon(models.Model):
-    def
     summoner = models.ForeignKey(Summoner, related_name='clickmons',
                                on_delete=models.CASCADE)
     name = models.CharField(max_length=20)
     hp_max = models.IntegerField(default=0)
-    hp = models.IntegerField(default=hp_max)
+    hp = models.IntegerField(default=0)
     exp = models.IntegerField(default=0)
     element = models.CharField(max_length=20)
     img_front = models.ImageField(max_length=100)
     img_back =models.ImageField(max_length=100)
-    stamina_max = models.IntegerField(default=0)
-    stamina = models.IntegerField(default=stamina_max)
+    DEFAULT_STAMINA_MAX = 0
+    stamina_max = models.IntegerField(default=DEFAULT_STAMINA_MAX)
+    stamina = models.IntegerField(default=DEFAULT_STAMINA_MAX)
     damage = models.IntegerField(default=0)
 
     def attack(self, monster):
