@@ -27,7 +27,7 @@ class Summoner(models.Model):
         return f'{self.name}'
 
 class Clickmon(models.Model):
-    summoner = models.ForeignKey(Summoner, related_name='clickmon',
+    summoner = models.ForeignKey(Summoner, related_name='clickmons',
                                on_delete=models.CASCADE)
     name = models.CharField(max_length=20)
     hp_max = models.IntegerField(default=0)
