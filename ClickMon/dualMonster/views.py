@@ -8,11 +8,6 @@ def combat(request):
     now = datetime.datetime.now()
     return render_to_response('combat.html', {
         'time': now,
-        'Clickmon': Clickmon,
-        'Attack': Attack,
-        'AttackPack':AttackPack,
-        'Summoner': Summoner,
-
 
     })
 

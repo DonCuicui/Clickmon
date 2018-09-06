@@ -28,7 +28,7 @@ class Summoner(models.Model):
 
 class Clickmon(models.Model):
     summoner = models.ForeignKey(Summoner, related_name='clickmon',
-                               on_delete=models.CASCADE)
+                               on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=20)
     hp_max = models.IntegerField(default=0)
     hp = models.IntegerField(default=0)
@@ -44,6 +44,8 @@ class Clickmon(models.Model):
         enemy_hp = monster.hp
         monster.hp = monster.hp - self.damage
         dealed_damage = enemy_hp - monster.hp
+        monster.save()
+
         return f'{monster.name} a subit {dealed_damage}'
     @property
     def is_alive(self):
