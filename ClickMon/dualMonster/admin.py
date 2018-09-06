@@ -1,3 +1,10 @@
 from django.contrib import admin
+from .models import Summoner, Clickmon, Attack
 
-# Register your models here.
+@admin.register(Summoner)
+class SummonerAdmin(admin.ModelAdmin):
+    list_display = ['name','gender', 'money', 'exp']
+
+@admin.register(Clickmon)
+class ClickmonAdmin(admin.ModelAdmin):
+    list_display = ['summoner', 'hp_max', 'exp', 'img_front']
