@@ -22,6 +22,7 @@
 	width: 50vw;
 	max-width: 50vw;
 	height: 100vh;
+	max-width: 100vh;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -31,6 +32,14 @@
 .clickmonsImg{
 	height: 100%;
 	width:100%;
+	max-height:240px;
+	max-width:240px;
+}
+.clickBank{
+justify-content: center;
+align-items: center;
+display: flex;
+flex-direction:column;
 }
 #imgCharacter{
 	margin: 0 25% 0 25%;
