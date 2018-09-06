@@ -1,7 +1,7 @@
 from django.core.files.base import ContentFile
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, redirect
-import datetime
+
 from .models import Summoner, Clickmon, Attack, AttackPack
 import random, requests
 
@@ -34,12 +34,13 @@ def new_clickmon(request):
 
 def combat(request, clickmon_id):
     clickmon = Clickmon.objects.get(id=clickmon_id)
+
+    clickmon_ennemy = Clickmon.objects.order_by('?')[0]
+
+
     return render_to_response('combat.html', {
         'clickmon': clickmon,
-        # 'Attack': Attack,
-        # 'AttackPack':AttackPack,
-        # 'Summoner': Summoner,
-
+        'clickmon_ennemy': clickmon_ennemy,
     })
 
 
@@ -49,3 +50,19 @@ def menu(request):
     })
 
 
+def attack(request, clickmon_id, clickmon_ennemy_id):
+    clickmon = Clickmon.objects.get(id=clickmon_id)
+    clickmon_ennemy = Clickmon.objects.get(id=clickmon_ennemy_id)
+
+    # calcul du combat puis enregistrement des nouvelles donnees dans la base
+
+    clickmon.attack(clickmon_ennemy)
+
+    return render_to_response('attack.html', {
+        'clickmon': clickmon,
+        'clickmon_ennemy': clickmon_ennemy,
+    })
+
+    # une fois tester le bon fonctionnement de la fonction attack de la class Clickmon du models
+    # url = '/combat/' + str(clickmon.id)
+    # return redirect(url)
