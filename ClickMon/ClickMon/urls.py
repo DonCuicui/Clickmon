@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from dualMonster.views import combat, menu
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('combat/', combat),
+    path('menu/', menu),
 ]
