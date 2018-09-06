@@ -80,6 +80,41 @@ class AttackPack(models.Model):
     exp_three = models.IntegerField(default=0)
     attack_four = models.ForeignKey(Attack, related_name='attack_four_rn', on_delete=models.CASCADE)
     exp_four = models.IntegerField(default=0)
+
+    FIRST_LEVEL_EXP = 0
+    SECOND_LEVEL_EXP = 100
+
+    @property
+    def level_attack_one(self):
+        return floor((self.exp_one / self.SECOND_LEVEL_EXP) ** .5 + 1)
+
+    @level.setter
+    def level_attack_one(self, new_level):
+        self.exp_one = max(self.FIRST_LEVEL_EXP, ((new_level - 1) * self.SECOND_LEVEL_EXP) ** 2)
+
+    @property
+    def level_attack_two(self):
+        return floor((self.exp_two / self.SECOND_LEVEL_EXP) ** .5 + 1)
+
+    @level.setter
+    def level_attack_two(self, new_level):
+        self.exp_two = max(self.FIRST_LEVEL_EXP, ((new_level - 1) * self.SECOND_LEVEL_EXP) ** 2)
+
+    @property
+    def level_attack_three(self):
+        return floor((self.exp_three / self.SECOND_LEVEL_EXP) ** .5 + 1)
+
+    @level.setter
+    def level_attack_three(self, new_level):
+        self.exp_three = max(self.FIRST_LEVEL_EXP, ((new_level - 1) * self.SECOND_LEVEL_EXP) ** 2)
+
+    @property
+    def level_attack_four(self):
+        return floor((self.exp_four / self.SECOND_LEVEL_EXP) ** .5 + 1)
+
+    @level.setter
+    def level_attack_four(self, new_level):
+        self.exp_four = max(self.FIRST_LEVEL_EXP, ((new_level - 1) * self.SECOND_LEVEL_EXP) ** 2)
     def __str__(self):
         return f'Attaques de {self.Clickmon}'
 

@@ -16,5 +16,6 @@ class AttackAdmin(admin.ModelAdmin):
 
 @admin.register(AttackPack)
 class AttackPackAdmin(admin.ModelAdmin):
-    list_display = ['Clickmon', 'attack_one', 'exp_one', 'attack_two', 'exp_two', 'attack_three', 'exp_three',
-                    'attack_four', 'exp_four']
+    list_display = ['Clickmon', 'attack_one', 'level_attack_one', 'exp_one', 'attack_two', 'level_attack_two',
+                    'exp_two', 'attack_three', 'level_attack_three', 'exp_three', 'attack_four',
+                    'level_attack_four', 'exp_four']
