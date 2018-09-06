@@ -18,13 +18,15 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from dualMonster.views import combat, menu, attack
+from dualMonster.views import combat, menu, attack, new_clickmon
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('combat/<int:clickmon_id>', combat, name='combat'),
     path('attack/<int:clickmon_id>/vs/<int:clickmon_ennemy_id>', attack, name='attack'),
-    path('menu/', menu),
+    path('menu/', menu, name='menu'),
+    path('newclickmon/', new_clickmon),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

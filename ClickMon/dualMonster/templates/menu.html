@@ -55,17 +55,15 @@
 		</TABLE>
 	</section>
 	<section id="clickmons">
-		<TABLE id="object" BORDER="1">
-			<TR>
+			<div  id="clickmonObject" >
 				{% for clickmon in summoner.clickmons.all %}
-                    <TD>
+                    <div class="clickBank">
                         <h3>{{ clickmon.name }}</h3>
                         <img class="clickmonsImg" src="{{ clickmon.img_front.url }}">
                         <a href="{% url 'combat' clickmon.id %}">Combattre avec {{ clickmon.name }}</a>
-                    </TD>
+                    </div>
                 {% endfor %}
-			</TR>
-		</TABLE>
+			</div>
 	</section>
 </body>
 </html>

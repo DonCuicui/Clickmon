@@ -36,8 +36,9 @@ class Clickmon(models.Model):
     element = models.CharField(max_length=20)
     img_front = models.ImageField(max_length=100)
     img_back =models.ImageField(max_length=100)
-    stamina = models.IntegerField(default=0)
-    stamina_max = models.IntegerField(default=0)
+    DEFAULT_STAMINA_MAX = 0
+    stamina_max = models.IntegerField(default=DEFAULT_STAMINA_MAX)
+    stamina = models.IntegerField(default=DEFAULT_STAMINA_MAX)
     damage = models.IntegerField(default=0)
 
     def attack(self, monster):
