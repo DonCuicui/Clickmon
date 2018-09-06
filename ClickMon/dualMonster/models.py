@@ -40,6 +40,11 @@ class Clickmon(models.Model):
     stamina_max = models.IntegerField(default=0)
     damage = models.IntegerField(default=0)
 
+    def attack(self, monster):
+        enemy_hp = monster.hp
+        monster.hp = monster.hp - self.damage
+        dealed_damage = enemy_hp - monster.hp
+        return f'{monster.name} a subit {dealed_damage}'
     @property
     def is_alive(self):
         if self.hp <= 0:
