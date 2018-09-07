@@ -1,6 +1,9 @@
 #menu{
+    color: white;
+    font-family: 'Press Start 2P', cursive;
 	display: flex;
 	flex-wrap: wrap;
+	background-image: url("https://img00.deviantart.net/d852/i/2015/239/a/3/pokemon_xy_vs_background_by_lil_riku-d97f4y5.png");
 }
 #character{
 	width: 50vw;
@@ -14,9 +17,11 @@
 }
 #imgCharacter{
 	margin: 0 25% 0 25%;
+	width:25vw;
 }
 #object{
 	align-content:flex-end;
+	display:none;
 }
 #clickmons{
 	width: 50vw;
@@ -39,6 +44,10 @@ flex-wrap:wrap;
 	max-width:240px;
 }
 .clickBank{
+width:33%;
+height:auto;
+max-width:33%;
+background-color:rgba(0, 0, 0, 0.5);
 justify-content: center;
 align-items: center;
 display: flex;
@@ -46,4 +55,7 @@ flex-direction:column;
 }
 #imgCharacter{
 	margin: 0 25% 0 25%;
+}
+#objectGui{
+height:20%;
 }

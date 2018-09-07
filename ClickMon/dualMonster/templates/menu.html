@@ -6,6 +6,7 @@
 	<title>Menu - Clickmon</title>
 	  {% load static %}
   <link rel="stylesheet" href="{% static 'menu.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
 <body id="menu">
 	<section id="character">
@@ -13,54 +14,17 @@
 			{{ summoner.name }}
 		</h1>
 		<div class="bar"></div>
-		<img id="imgCharacter" src="https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/40594104_1967246823333592_7849944596283916288_n.jpg?_nc_cat=0&oh=80c04eae3714b0ffba3bfc7cacbb95a4&oe=5BECDA83">
-		<TABLE id="objects" BORDER="1">
-			<CAPTION> Objects </CAPTION>
-			<TR>
-				<TD>
-					<img src="">
-					<h3>"name_object"</h3>
-				</TD>
-				<TD>
-					<img src="">
-					<h3>"name_object"</h3>
-				</TD>
-				<TD>
-					<img src="">
-					<h3>"name_object"</h3>
-				</TD>
-				<TD>
-					<img src="">
-					<h3>"name_object"</h3>
-				</TD>
-			</TR>
-			<TR>
-				<TD>
-					<img src="">
-					<h3>"name_object"</h3>
-				</TD>
-				<TD>
-					<img src="">
-					<h3>"name_object"</h3>
-				</TD>
-				<TD>
-					<img src="">
-					<h3>"name_object"</h3>
-				</TD>
-				<TD>
-					<img src="">
-					<h3>"name_object"</h3>
-				</TD>
-			</TR>
-		</TABLE>
-	</section>
+		<img id="imgCharacter" src="../static/summoner.png">
+		<CAPTION> Objects </CAPTION>
+		<img src="../static/halfGui.png" id="objectGui">
+					</section>
 	<section id="clickmons">
 			<div  id="clickmonObject" >
 				{% for clickmon in summoner.clickmons.all %}
                     <div class="clickBank">
                         <h3>{{ clickmon.name }}</h3>
                         <img class="clickmonsImg" src="{{ clickmon.img_front.url }}">
-                        <a href="{% url 'combat' clickmon.id %}">Combattre avec {{ clickmon.name }}</a>
+                        <a  class="buttonDuel" href="{% url 'combat' clickmon.id %}">Combattre avec {{ clickmon.name }}</a>
                     </div>
                 {% endfor %}
 			</div>

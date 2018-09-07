@@ -6,7 +6,7 @@ from .models import Summoner, Clickmon, Attack, AttackPack
 import random, requests
 
 def get_summoner():
-    return Summoner.objects.get_or_create(name='alban', mdp='gfkjlknl')[0]
+    return Summoner.objects.get_or_create(name='El Cuicui', mdp='Patate')[0]
 
 def new_clickmon(request):
     first_int = random.randint(1, 151)
